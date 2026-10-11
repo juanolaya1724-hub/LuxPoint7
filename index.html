@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LuxPoint7 — Perfumes, iPhone, AirPods y Combos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="#" class="logo" data-vista="inicio">
+      Lux<span>Point7</span>
+    </a>
+
+    <nav class="menu" id="menu">
+      <button class="menu-link activo" data-vista="inicio">Inicio</button>
+      <button class="menu-link" data-vista="perfumes">Perfumes 1.1</button>
+      <button class="menu-link" data-vista="iphones">iPhone</button>
+      <button class="menu-link" data-vista="airpods">AirPods</button>
+      <button class="menu-link" data-vista="combos">Combos</button>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== BUSCADOR ===================== -->
+<section class="buscador-wrap">
+  <div class="buscador-inner">
+    <svg class="icono-lupa" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    <input
+      type="text"
+      id="inputBusqueda"
+      class="input-buscador"
+      placeholder="Busca un perfume, un modelo de iPhone, AirPods o un combo..."
+      autocomplete="off"
+    >
+    <button class="btn-limpiar" id="btnLimpiar" title="Limpiar búsqueda">✕</button>
+  </div>
+  <p class="buscador-resultado" id="buscadorInfo"></p>
+</section>
+
+<!-- ===================== CONTENIDO PRINCIPAL ===================== -->
+<main id="main">
+
+  <!-- ---- VISTA INICIO ---- -->
+  <section class="vista-inicio" id="vistaInicio">
+    <div class="hero">
+      <p class="hero-eyebrow">Catálogo exclusivo</p>
+      <h1 class="hero-titulo">Piezas selectas.<br>Sin intermediarios.</h1>
+      <p class="hero-texto">
+        Cuatro categorías, una misma exigencia: fragancias de alta fidelidad,
+        iPhones certificados, AirPods originales y combos pensados para ti.
+        Todo a un mensaje de distancia.
+      </p>
+    </div>
+
+    <div class="categorias-grid">
+      <button class="categoria-card" data-vista="perfumes">
+        <div class="categoria-icono">✦</div>
+        <h3>Perfumes 1.1</h3>
+        <p>276 fragancias de altísima fidelidad, una por una.</p>
+        <span class="categoria-cta">Ver colección →</span>
+      </button>
+
+      <button class="categoria-card" data-vista="iphones">
+        <div class="categoria-icono">◐</div>
+        <h3>iPhone</h3>
+        <p>39 modelos disponibles, sellados y con garantía verificada.</p>
+        <span class="categoria-cta">Ver colección →</span>
+      </button>
+
+      <button class="categoria-card" data-vista="airpods">
+        <div class="categoria-icono">◯</div>
+        <h3>AirPods</h3>
+        <p>Sonido original Apple, todas las generaciones disponibles.</p>
+        <span class="categoria-cta">Ver colección →</span>
+      </button>
+
+      <button class="categoria-card" data-vista="combos">
+        <div class="categoria-icono">✧</div>
+        <h3>Combos</h3>
+        <p>Paquetes especiales con el mejor precio combinado.</p>
+        <span class="categoria-cta">Ver colección →</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ---- VISTA CATÁLOGO / RESULTADOS (se llena por JS) ---- -->
+  <section class="vista-catalogo" id="vistaCatalogo">
+    <div class="catalogo-header">
+      <h2 id="catalogoTitulo">Catálogo</h2>
+      <span class="catalogo-contador" id="catalogoContador"></span>
+    </div>
+    <div class="grid-productos" id="gridProductos"></div>
+    <p class="sin-resultados" id="sinResultados">No encontramos productos que coincidan con tu búsqueda.</p>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <p>© 2026 LuxPoint7 — Todos los pedidos se confirman por WhatsApp.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
