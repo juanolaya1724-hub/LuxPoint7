@@ -2395,7 +2395,9 @@ if (ap4) {
 }
 
 
-
+productosDB.forEach(prod => {
+  prod.imagen = prod.imagen.split("/").pop().replace(/\.png$/i, ".jpg");
+});
 
 
 
