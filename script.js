@@ -2285,7 +2285,7 @@ const ip306 = productosDB.find(prod => prod.id === 306);
 if (ip306) {
   ip306.nombre = "iPhone 16 PRO MAX 1TERA";
   ip306.descripcion = "INCLUYE: Cabeza Cargador ORIGINAL + Cable Cargador + AirPods Pro2 1.1 + Estuche AirPods + Vidrio Protector + Estuche Celular.";
-  ip306.precio = 220000;
+  ip306.precio = 4220000;
 }
 
 const ip307 = productosDB.find(prod => prod.id === 307);  ////AQUI VAN LOS IPHONE NUEVOS////////////////////////////////////////
