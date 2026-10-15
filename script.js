@@ -98,8 +98,8 @@ for (let i = 1; i <= TOTAL_AIRPODS; i++) {
   });
 }
 
-/* ---------------------- COMBOS (5, escritos a mano) ----------------------
-   Estos 5 objetos NO se generan por bucle porque cada combo suele tener
+/* ---------------------- COMBOS (4, escritos a mano) ----------------------
+   Estos 4 objetos NO se generan por bucle porque cada combo suele tener
    contenido comercial distinto (qué productos incluye, oferta, etc).
    Ya están listos con id, imagen y precio de ejemplo: solo entra aquí más
    adelante y cambia "nombre" y "descripcion" por el contenido real de
@@ -502,7 +502,7 @@ if (p51) {
 const p52 = productosDB.find(prod => prod.id === 52); 
 if (p52) {
   p52.nombre = "Stronger Intensely";
-  p52.descripcion = "Es una fragancia masculina de la familia oriental fovgère y gourmand, aclamada por su aroma profundamente dulce, cálido, adictivo y seductor.";
+  p52.descripcion = "Es una fragancia masculina de la familia oriental fougère y gourmand, aclamada por su aroma profundamente dulce, cálido, adictivo y seductor.";
   p52.precio = 110000;
 }
 
@@ -551,7 +551,7 @@ if (p58) {
 const p59 = productosDB.find(prod => prod.id === 59); 
 if (p59) {
   p59.nombre = "Hugo Boss Just Different";
-  p59.descripcion = "Es una fragancia masculina de la familia aromática aromática, célebre por su aroma moderno, vibrante, fresco y con un toque helado.";
+  p59.descripcion = "Es una fragancia masculina de la familia aromática, célebre por su aroma moderno, vibrante, fresco y con un toque helado.";
   p59.precio = 100000;
 }
 
@@ -586,7 +586,7 @@ if (p63) {
 const p64 = productosDB.find(prod => prod.id === 64); 
 if (p64) {
   p64.nombre = "Hugo Boss Unlimited";
-  p64.descripcion = "Es una fragancia masculina de la familia aromática fovgère, aclamada por su aroma verde, energizante, frutal y sumamente limpio.";
+  p64.descripcion = "Es una fragancia masculina de la familia aromática fougère, aclamada por su aroma verde, energizante, frutal y sumamente limpio.";
   p64.precio = 100000;
 }
 
@@ -635,28 +635,28 @@ if (p70) {
 const p71 = productosDB.find(prod => prod.id === 71); 
 if (p71) {
   p71.nombre = "Jean Paul Gaultier Le Male";
-  p71.descripcion = "Es una fragancia masculina de la familia oriental fovgère, un icono de la perfumería célebre por su aroma seductor, cálido, limpio y sumamente característico.";
+  p71.descripcion = "Es una fragancia masculina de la familia oriental fougère, un icono de la perfumería célebre por su aroma seductor, cálido, limpio y sumamente característico.";
   p71.precio = 115000;
 }
 
 const p72 = productosDB.find(prod => prod.id === 72); 
 if (p72) {
   p72.nombre = "Jean Paul Elixir";
-  p72.descripcion = "EEl perfume Jean Paul Gaultier Le Male Elixir es una fragancia masculina de la familia oriental ambarada, aclamada por su aroma opulento, ultra seductor, cálido y profundamente dulce.";
+  p72.descripcion = "El perfume Jean Paul Gaultier Le Male Elixir es una fragancia masculina de la familia oriental ambarada, aclamada por su aroma opulento, ultra seductor, cálido y profundamente dulce.";
   p72.precio = 120000;
 }
 
 const p73 = productosDB.find(prod => prod.id === 73); 
 if (p73) {
   p73.nombre = "Jean Paul Ultra Male";
-  p73.descripcion = "Es una fragancia masculina de la familia oriental fovgère, célebre por su aroma Intenso, ultra jugoso, dulce y nocturno.";
+  p73.descripcion = "Es una fragancia masculina de la familia oriental fougère, célebre por su aroma Intenso, ultra jugoso, dulce y nocturno.";
   p73.precio = 115000;
 }
 
 const p74 = productosDB.find(prod => prod.id === 74); 
 if (p74) {
   p74.nombre = "Jean Paul Le Parfum";
-  p74.descripcion = "Es una fragancia masculina de la familia oriental ambarada, célebre por su aroma sofisticado, Intenso, cálido y elegant.";
+  p74.descripcion = "Es una fragancia masculina de la familia oriental ambarada, célebre por su aroma sofisticado, Intenso, cálido y elegante.";
   p74.precio = 115000;
 }
 
@@ -978,7 +978,7 @@ if (p119) {
 const p120 = productosDB.find(prod => prod.id === 120); 
 if (p120) {
   p120.nombre = "Montale Starry Nights";
-  p120.descripcion = "Fragancia oriental, oriental y afrutada. Fusiona notas de bergamota, manzana y limón con un corazón denso de rosa y pachulí sobre una base de ámbar, polvo y almizcle blanco.";
+  p120.descripcion = "Fragancia oriental, afrutada. Fusiona notas de bergamota, manzana y limón con un corazón denso de rosa y pachulí sobre una base de ámbar, polvo y almizcle blanco.";
   p120.precio = 105000;
 }
 
@@ -1027,7 +1027,7 @@ if (p126) {
 const p127 = productosDB.find(prod => prod.id === 127); 
 if (p127) {
   p127.nombre = "Nautica Voyage N-83";
-  p127.descripcion = "Fragancia marina, aromática y picante. Presenta notas de brisa marina, menta picante y petirrojo con un toque de cardamomo, nuez moscada y un fondo de maderas nobles.";
+  p127.descripcion = "Fragancia marina, aromática y picante. Presenta notas de brisa marina, menta picante y petitgrain con un toque de cardamomo, nuez moscada y un fondo de maderas nobles.";
   p127.precio = 100000;
 }
 
@@ -1581,7 +1581,7 @@ const p206 = productosDB.find(prod => prod.id === 206);
 if (p206) {
   p206.nombre = "Velvet Gold (Estuche)";
   p206.descripcion = "Aroma opulento, dulce y empolvado. Fusiona acordes de violeta, rosa y pimienta rosa en la salida con un corazón cálido de pachulí y caramelo, cerrando con un fondo suave de almizcle blanco, vainilla y ámbar.";
-  p206.precio = 10000;
+  p206.precio = 120000;
 }
 
 const p207 = productosDB.find(prod => prod.id === 207); 
@@ -1853,7 +1853,7 @@ if (p244) {
 
 const p245 = productosDB.find(prod => prod.id === 245); 
 if (p245) {
-  p245.nombre = "Light Blue Dama";
+  p245.nombre = "Light Blue";
   p245.descripcion = "Aroma chispeante, fresco y mediterráneo. Destaca por notas de manzana verde Granny Smith, limón siciliano y campanilla, combinadas con un corazón de bambú, rosa blanca y jazmín, sobre una base limpia de madera de cedro, ámbar y almizcle.";
   p245.precio = 100000;
 }
@@ -1882,7 +1882,7 @@ if (p248) {
 const p249 = productosDB.find(prod => prod.id === 249); 
 if (p249) {
   p249.nombre = "Hugo XX";
-  p249.descripcion = "Fragancia moderna, floral y amaderada. Abre con notas cítricas y afrutadas de mandarina, arándano y lichi, evolucionando hacia un corazón de jazmín y bajorrelieve de arroz, con un fondo sofisticado de sándalo y ámbar.";
+  p249.descripcion = "Fragancia moderna, floral y amaderada. Abre con notas cítricas y afrutadas de mandarina, arándano y lichi, evolucionando hacia un corazón de jazmín, con un fondo sofisticado de sándalo y ámbar.";
   p249.precio = 100000;
 }
 
