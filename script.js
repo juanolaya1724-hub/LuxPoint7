@@ -2563,8 +2563,12 @@ function actualizarMenuActivo(vista) {
 
 
 /* =========================================================================
-   6. FILTRADO POR CATEGORÍA
+   6. FILTRADO POR CATEGORÍA Y ORDEN
    ========================================================================= */
+
+function filtrarPorCategoria(categoria) {
+  return productosDB.filter(producto => producto.categoria === categoria);
+}
 
 function ordenarProductos(lista) {
   const copia = [...lista];   // copia, para no alterar el orden original
@@ -2583,7 +2587,6 @@ function ordenarProductos(lista) {
 
   return copia;
 }
-
 /* =========================================================================
    7. BUSCADOR PREDICTIVO EN TIEMPO REAL
    -------------------------------------------------------------------------
