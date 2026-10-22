@@ -2659,6 +2659,9 @@ document.querySelectorAll("[data-vista]").forEach(elemento => {
     buscadorInfo.textContent = "";
     btnLimpiar.style.display = "none";
     mostrarVista(vista);
+         estado.orden = "original";
+    selectOrden.value = "original";
+    mostrarVista(vista);
     menu.classList.remove("abierto");
   });
 });
@@ -2666,7 +2669,10 @@ document.querySelectorAll("[data-vista]").forEach(elemento => {
 menuToggle.addEventListener("click", () => {
   menu.classList.toggle("abierto");
 });
-
+selectOrden.addEventListener("change", (e) => {
+  estado.orden = e.target.value;
+  mostrarVista(estado.vista);
+});
 
 /* =========================================================================
    9. ENVÍO DE PEDIDO POR WHATSAPP
