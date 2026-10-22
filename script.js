@@ -2497,10 +2497,6 @@ function crearTarjetaProducto(producto) {
   return card;
 }
 
-  // CAMBIO 1: esta línea es nueva
-  const badgeHTML = producto.estado
-    ? `<span class="badge-estado ${producto.estado === "NUEVO" ? "badge-nuevo" : "badge-seminuevo"}">${producto.estado}</span>`
-    : "";
 
   card.innerHTML = `
     <div class="producto-imagen-wrap">
