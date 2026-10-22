@@ -2495,9 +2495,6 @@ card.querySelector(".btn-whatsapp").addEventListener("click", () => {
     enviarWhatsApp(producto.nombre);
   });
 
-  return card;
-}
-
 function renderizarProductos(lista) {
   gridProductos.innerHTML = "";
 
