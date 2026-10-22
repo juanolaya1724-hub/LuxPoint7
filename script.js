@@ -2415,9 +2415,12 @@ productosDB.forEach(prod => {
    ========================================================================= */
 
 const estado = {
-  vista: "inicio",     // "inicio" | "perfumes" | "iphones" | "airpods" | "combos" | "busqueda"
-  terminoBusqueda: ""
+  vista: "inicio",
+  terminoBusqueda: "",
+  orden: "original"
 };
+
+const selectOrden = document.getElementById("selectOrden");
 
 const vistaInicio      = document.getElementById("vistaInicio");
 const vistaCatalogo    = document.getElementById("vistaCatalogo");
