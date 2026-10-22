@@ -2457,9 +2457,9 @@ function formatearPrecio(valor) {
    4. RENDERIZADO DE TARJETAS DE PRODUCTO
    ========================================================================= */
 
-function crearTarjetaProducto(producto) {
-  const card = document.createElement("article");
-  card.className = "producto-card";
+card.querySelector(".btn-whatsapp").addEventListener("click", () => {
+  enviarWhatsApp(producto);   // antes: producto.nombre
+});
 
   // CAMBIO 1: esta línea es nueva
   const badgeHTML = producto.estado
