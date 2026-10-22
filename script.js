@@ -2457,9 +2457,45 @@ function formatearPrecio(valor) {
    4. RENDERIZADO DE TARJETAS DE PRODUCTO
    ========================================================================= */
 
-card.querySelector(".btn-whatsapp").addEventListener("click", () => {
-  enviarWhatsApp(producto);   // antes: producto.nombre
-});
+function crearTarjetaProducto(producto) {
+  const card = document.createElement("article");
+  card.className = "producto-card";
+
+  const badgeHTML = producto.estado
+    ? `<span class="badge-estado ${producto.estado === "NUEVO" ? "badge-nuevo" : "badge-seminuevo"}">${producto.estado}</span>`
+    : "";
+
+  card.innerHTML = `
+    <div class="producto-imagen-wrap">
+      ${badgeHTML}
+      <img
+        class="img-producto"
+        src="${producto.imagen}"
+        alt="${producto.nombre}"
+        loading="lazy"
+        decoding="async"
+        onerror="this.src='https://via.placeholder.com/300x300/16181d/f0c24d?text=LuxPoint7'"
+      >
+    </div>
+    <div class="producto-info">
+      <p class="producto-categoria">${NOMBRES_CATEGORIA[producto.categoria]}</p>
+      <h3 class="producto-nombre">${producto.nombre}</h3>
+      <p class="producto-desc">${producto.descripcion}</p>
+      <div class="producto-footer">
+        <span class="producto-precio">${formatearPrecio(producto.precio)}</span>
+        <button class="btn-whatsapp" data-nombre="${producto.nombre}">
+          WhatsApp
+        </button>
+      </div>
+    </div>
+  `;
+
+  card.querySelector(".btn-whatsapp").addEventListener("click", () => {
+    enviarWhatsApp(producto);
+  });
+
+  return card;
+}
 
   // CAMBIO 1: esta línea es nueva
   const badgeHTML = producto.estado
