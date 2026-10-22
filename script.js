@@ -2566,10 +2566,23 @@ function actualizarMenuActivo(vista) {
    6. FILTRADO POR CATEGORÍA
    ========================================================================= */
 
-function filtrarPorCategoria(categoria) {
-  return productosDB.filter(producto => producto.categoria === categoria);
-}
+function ordenarProductos(lista) {
+  const copia = [...lista];   // copia, para no alterar el orden original
 
+  switch (estado.orden) {
+    case "precio-asc":
+      copia.sort((a, b) => a.precio - b.precio);
+      break;
+    case "precio-desc":
+      copia.sort((a, b) => b.precio - a.precio);
+      break;
+    case "nombre":
+      copia.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
+      break;
+  }
+
+  return copia;
+}
 
 /* =========================================================================
    7. BUSCADOR PREDICTIVO EN TIEMPO REAL
