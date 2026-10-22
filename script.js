@@ -2649,8 +2649,22 @@ menuToggle.addEventListener("click", () => {
    9. ENVÍO DE PEDIDO POR WHATSAPP
    ========================================================================= */
 
-function enviarWhatsApp(nombreProducto) {
-  const mensaje = `Hola, me gustaría comprar este producto: ${nombreProducto}`;
+function enviarWhatsApp(producto) {
+  const lineas = [
+    "Hola LuxPoint7, quiero este producto:",
+    "",
+    `*${producto.nombre}*`,
+    `Categoría: ${NOMBRES_CATEGORIA[producto.categoria]}`
+  ];
+
+  if (producto.estado) {
+    lineas.push(`Estado: ${producto.estado}`);
+  }
+
+  lineas.push(`Precio: ${formatearPrecio(producto.precio)}`);
+  lineas.push("", "¿Lo tienen disponible?");
+
+  const mensaje = lineas.join("\n");
   const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
   window.open(url, "_blank");
 }
