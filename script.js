@@ -2504,7 +2504,9 @@ function crearTarjetaProducto(producto) {
 
 
 function renderizarProductos(lista) {
+  lista = ordenarProductos(lista);
   gridProductos.innerHTML = "";
+  // ...el resto queda igual
 
   if (lista.length === 0) {
     sinResultados.style.display = "block";
