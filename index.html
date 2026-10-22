@@ -118,6 +118,17 @@
       <h2 id="catalogoTitulo">Catálogo</h2>
       <span class="catalogo-contador" id="catalogoContador"></span>
     </div>
+
+    <div class="catalogo-herramientas">
+  <label for="selectOrden">Ordenar por</label>
+  <select id="selectOrden">
+    <option value="original">Más relevantes</option>
+    <option value="precio-asc">Precio: menor a mayor</option>
+    <option value="precio-desc">Precio: mayor a menor</option>
+    <option value="nombre">Nombre A-Z</option>
+  </select>
+</div>
+    
     <div class="grid-productos" id="gridProductos"></div>
     <p class="sin-resultados" id="sinResultados">No encontramos productos que coincidan con tu búsqueda.</p>
   </section>
