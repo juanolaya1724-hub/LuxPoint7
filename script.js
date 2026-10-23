@@ -142,27 +142,18 @@ productosDB.push(
 
 // NOMBRO A CADA PRODUCTO CON SU NOMBRE REAL //
 
-const p = productosDB.find(prod => prod.id === 1);
-if (p) {
-  p.nombre = "Ahli Karpos";
-  p.descripcion = "Es una fragancia unisex fresca, frutal y elegante, con notas tropicales y un fondo cálido y envolvente.";
-  p.precio = 100000;
-}
+const perfumesReales = [
+  { nombre: "Ahli Karpos", genero: "unisex", precio: 100000, descripcion: "TE INCLUYE: Perfumero 5ml + Obsequio Sorpresa + Bolsa para que lo lleves." },
+  { nombre: "Ahli Vega",   genero: "unisex", precio: 100000, descripcion: "TE INCLUYE: Perfumero 5ml + Obsequio Sorpresa + Bolsa para que lo lleves." },
+  { nombre: "Blue Seduction", genero: "masculino", precio: 130000, descripcion: "TE INCLUYE: Perfumero 5ml + Obsequio Sorpresa + Bolsa para que lo lleves." }
+];
 
-const p2 = productosDB.find(prod => prod.id === 2);
-if (p2) {
-  p2.nombre = "Ahli Vega";
-  p2.descripcion = "Es una fragancia unisex de la familia frutal, floral y dulce. Tiene un aroma dulce, fresco y sofisticado.";
-  p2.precio = 100000;
-}
+perfumesReales.forEach((real, i) => {
+  const producto = productosDB[i];   // el perfume i+1
+  Object.assign(producto, real);
+});
 
-const p3 = productosDB.find(prod => prod.id === 3);
-if (p3) {
-  p3.nombre = "Aqua Dubai Cofre";
-  p3.descripcion = "Es una fragancia unisex de la familia floral y dulce. Tiene un aroma suave, fresco y envolvente.";
-  p3.precio = 130000;
-}
-
+/////////////////////////////////////////////////////////////////////////////////////////////
 const p4 = productosDB.find(prod => prod.id === 4);
 if (p4) {
   p4.nombre = "Alharramain Amber Oud Cofre";
