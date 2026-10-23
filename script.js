@@ -145,7 +145,7 @@ productosDB.push(
 const perfumesReales = [
   { nombre: "Ahli Karpos", genero: "unisex", precio: 100000, descripcion: "TE INCLUYE: Perfumero 5ml + Obsequio Sorpresa + Bolsa para que lo lleves." },
   { nombre: "Ahli Vega",   genero: "unisex", precio: 100000, descripcion: "TE INCLUYE: Perfumero 5ml + Obsequio Sorpresa + Bolsa para que lo lleves." },
-  { nombre: "Blue Seduction", genero: "masculino", precio: 130000, descripcion: "TE INCLUYE: Perfumero 5ml + Obsequio Sorpresa + Bolsa para que lo lleves." }
+  { nombre: "Aqua Dubai Cofre", genero: "masculino", precio: 130000, descripcion: "TE INCLUYE: Perfumero 5ml + Obsequio Sorpresa + Bolsa para que lo lleves." }
 ];
 
 perfumesReales.forEach((real, i) => {
