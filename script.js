@@ -145,7 +145,7 @@ productosDB.push(
 const perfumesReales = [
   { nombre: "Ahli Karpos", genero: "unisex", precio: 100000, descripcion: "Es una fragancia unisex fresca, frutal y elegante, con notas tropicales y un fondo cálido y envolvente." },
   { nombre: "Ahli Vega", genero: "unisex", precio: 100000, descripcion: "Es una fragancia unisex de la familia frutal, floral y dulce. Tiene un aroma dulce, fresco y sofisticado." },
-  { nombre: "Aqua Dubai Cofre", genero: "unisex", precio: 130000, descripcion: "Es una fragancia unisex de la familia floral y dulce. Tiene un aroma suave, fresco y envolvente." }
+  { nombre: "Aqua Dubai Cofre", genero: "masculino", precio: 130000, descripcion: "Es una fragancia unisex de la familia floral y dulce. Tiene un aroma suave, fresco y envolvente." }
 ];
 
 perfumesReales.forEach((real, i) => {
@@ -2066,12 +2066,21 @@ if (p276) {
   p276.precio = 100000;
 }
 
+
 const INCLUYE_PERFUME = "TE INCLUYE: Perfumero 5ml + Obsequio Sorpresa + Bolsa para que lo lleves.";
 
 productosDB.forEach(prod => {
   if (prod.categoria === "perfumes") {
     prod.incluye = INCLUYE_PERFUME;
   }
+});
+productosDB.forEach(prod => {
+  if (prod.categoria !== "perfumes" || prod.genero) return;   // si ya tiene, no lo toca
+
+  const d = prod.descripcion.toLowerCase();
+  if (d.includes("unisex"))         prod.genero = "unisex";
+  else if (d.includes("masculin"))  prod.genero = "masculino";
+  else if (d.includes("femenin"))   prod.genero = "femenino";
 });
 
 ///// COLOCO DESCRPCION A LOS IPHONE///////////////////////////////////////////////////////////////////////////////////
