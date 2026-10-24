@@ -2428,6 +2428,16 @@ const estado = {
   orden: "original"
 };
 
+const estado = {
+  vista: "inicio",
+  terminoBusqueda: "",
+  orden: "original",
+  genero: "todos"          // ← nueva
+};
+
+const selectGenero = document.getElementById("selectGenero");   // ← nueva
+const grupoGenero  = document.getElementById("grupoGenero");    // ← nueva
+
 const selectOrden = document.getElementById("selectOrden");
 
 const vistaInicio      = document.getElementById("vistaInicio");
@@ -2549,6 +2559,7 @@ function mostrarVista(nombreVista) {
 
   if (nombreVista === "inicio") {
     vistaInicio.style.display = "block";
+     grupoGenero.style.display = nombreVista === "perfumes" ? "flex" : "none";
     vistaCatalogo.style.display = "none";
     actualizarMenuActivo("inicio");
     return;
@@ -2563,7 +2574,7 @@ function mostrarVista(nombreVista) {
     actualizarMenuActivo(null);
   } else {
     catalogoTitulo.textContent = NOMBRES_CATEGORIA[nombreVista];
-    renderizarProductos(filtrarPorCategoria(nombreVista));
+    renderizarProductos(filtrarPorGenero(filtrarPorCategoria(nombreVista)));
     actualizarMenuActivo(nombreVista);
   }
 
@@ -2602,6 +2613,12 @@ function ordenarProductos(lista) {
 
   return copia;
 }
+
+function filtrarPorGenero(lista) {
+  if (estado.genero === "todos") return lista;
+  return lista.filter(producto => producto.genero === estado.genero);
+} 
+
 /* =========================================================================
    7. BUSCADOR PREDICTIVO EN TIEMPO REAL
    -------------------------------------------------------------------------
@@ -2679,6 +2696,11 @@ document.querySelectorAll("[data-vista]").forEach(elemento => {
   });
 });
 
+selectGenero.addEventListener("change", (e) => {
+  estado.genero = e.target.value;
+  mostrarVista(estado.vista);
+});
+
 menuToggle.addEventListener("click", () => {
   menu.classList.toggle("abierto");
 });
@@ -2686,6 +2708,9 @@ selectOrden.addEventListener("change", (e) => {
   estado.orden = e.target.value;
   mostrarVista(estado.vista);
 });
+
+    estado.genero = "todos";
+    selectGenero.value = "todos";
 
 /* =========================================================================
    9. ENVÍO DE PEDIDO POR WHATSAPP
