@@ -2425,12 +2425,6 @@ productosDB.forEach(prod => {
 const estado = {
   vista: "inicio",
   terminoBusqueda: "",
-  orden: "original"
-};
-
-const estado = {
-  vista: "inicio",
-  terminoBusqueda: "",
   orden: "original",
   genero: "todos"          // ← nueva
 };
