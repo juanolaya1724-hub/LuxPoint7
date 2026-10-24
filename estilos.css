@@ -567,3 +567,9 @@ img { max-width: 100%; display: block; }
   margin: 0 0 14px;
   line-height: 1.4;
 }
+
+.grupo-filtro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
