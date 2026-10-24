@@ -2553,7 +2553,6 @@ function mostrarVista(nombreVista) {
 
   if (nombreVista === "inicio") {
     vistaInicio.style.display = "block";
-     grupoGenero.style.display = nombreVista === "perfumes" ? "flex" : "none";
     vistaCatalogo.style.display = "none";
     actualizarMenuActivo("inicio");
     return;
@@ -2561,6 +2560,8 @@ function mostrarVista(nombreVista) {
 
   vistaInicio.style.display = "none";
   vistaCatalogo.style.display = "block";
+  grupoGenero.style.display = nombreVista === "perfumes" ? "flex" : "none";
+  // ...lo demás queda igual
 
   if (nombreVista === "busqueda") {
     catalogoTitulo.textContent = `Resultados para "${estado.terminoBusqueda}"`;
@@ -2682,29 +2683,28 @@ document.querySelectorAll("[data-vista]").forEach(elemento => {
     estado.terminoBusqueda = "";
     buscadorInfo.textContent = "";
     btnLimpiar.style.display = "none";
-    mostrarVista(vista);
-         estado.orden = "original";
+    estado.orden = "original";
     selectOrden.value = "original";
+    estado.genero = "todos";
+    selectGenero.value = "todos";
     mostrarVista(vista);
     menu.classList.remove("abierto");
   });
+});
+
+menuToggle.addEventListener("click", () => {
+  menu.classList.toggle("abierto");
+});
+
+selectOrden.addEventListener("change", (e) => {
+  estado.orden = e.target.value;
+  mostrarVista(estado.vista);
 });
 
 selectGenero.addEventListener("change", (e) => {
   estado.genero = e.target.value;
   mostrarVista(estado.vista);
 });
-
-menuToggle.addEventListener("click", () => {
-  menu.classList.toggle("abierto");
-});
-selectOrden.addEventListener("change", (e) => {
-  estado.orden = e.target.value;
-  mostrarVista(estado.vista);
-});
-
-    estado.genero = "todos";
-    selectGenero.value = "todos";
 
 /* =========================================================================
    9. ENVÍO DE PEDIDO POR WHATSAPP
