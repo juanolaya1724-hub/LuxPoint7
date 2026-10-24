@@ -143,9 +143,9 @@ productosDB.push(
 // NOMBRO A CADA PRODUCTO CON SU NOMBRE REAL //
 
 const perfumesReales = [
-  { nombre: "Ahli Karpos", genero: "unisex", precio: 100000, descripcion: "TE INCLUYE: Perfumero 5ml + Obsequio Sorpresa + Bolsa para que lo lleves." },
-  { nombre: "Ahli Vega",   genero: "unisex", precio: 100000, descripcion: "TE INCLUYE: Perfumero 5ml + Obsequio Sorpresa + Bolsa para que lo lleves." },
-  { nombre: "Aqua Dubai Cofre", genero: "masculino", precio: 130000, descripcion: "TE INCLUYE: Perfumero 5ml + Obsequio Sorpresa + Bolsa para que lo lleves." }
+  { nombre: "Ahli Karpos", genero: "unisex", precio: 100000, descripcion: "Es una fragancia unisex fresca, frutal y elegante, con notas tropicales y un fondo cálido y envolvente." },
+  { nombre: "Ahli Vega", genero: "unisex", precio: 100000, descripcion: "Es una fragancia unisex de la familia frutal, floral y dulce. Tiene un aroma dulce, fresco y sofisticado." },
+  { nombre: "Aqua Dubai Cofre", genero: "unisex", precio: 130000, descripcion: "Es una fragancia unisex de la familia floral y dulce. Tiene un aroma suave, fresco y envolvente." }
 ];
 
 perfumesReales.forEach((real, i) => {
@@ -2066,6 +2066,14 @@ if (p276) {
   p276.precio = 100000;
 }
 
+const INCLUYE_PERFUME = "TE INCLUYE: Perfumero 5ml + Obsequio Sorpresa + Bolsa para que lo lleves.";
+
+productosDB.forEach(prod => {
+  if (prod.categoria === "perfumes") {
+    prod.incluye = INCLUYE_PERFUME;
+  }
+});
+
 ///// COLOCO DESCRPCION A LOS IPHONE///////////////////////////////////////////////////////////////////////////////////
 
 
@@ -2459,6 +2467,10 @@ function crearTarjetaProducto(producto) {
     ? `<span class="badge-estado ${producto.estado === "NUEVO" ? "badge-nuevo" : "badge-seminuevo"}">${producto.estado}</span>`
     : "";
 
+   const incluyeHTML = producto.incluye
+  ? `<p class="producto-incluye">${producto.incluye}</p>`
+  : "";
+
   card.innerHTML = `
     <div class="producto-imagen-wrap">
       ${badgeHTML}
@@ -2475,6 +2487,7 @@ function crearTarjetaProducto(producto) {
       <p class="producto-categoria">${NOMBRES_CATEGORIA[producto.categoria]}</p>
       <h3 class="producto-nombre">${producto.nombre}</h3>
       <p class="producto-desc">${producto.descripcion}</p>
+            ${incluyeHTML} 
       <div class="producto-footer">
         <span class="producto-precio">${formatearPrecio(producto.precio)}</span>
         <button class="btn-whatsapp" data-nombre="${producto.nombre}">
