@@ -2717,3 +2717,5 @@ function enviarWhatsApp(producto) {
    ========================================================================= */
 
 mostrarVista("inicio");
+
+console.log(productosDB.filter(p => p.categoria === "perfumes" && !p.genero).map(p => p.id + " " + p.nombre).join("\n"));
