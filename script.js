@@ -2472,43 +2472,61 @@ function formatearPrecio(valor) {
    4. RENDERIZADO DE TARJETAS DE PRODUCTO
    ========================================================================= */
 
+const IMAGEN_RESPALDO = "data:image/svg+xml," + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">' +
+  '<rect width="300" height="300" fill="#16181d"/>' +
+  '<text x="150" y="165" font-family="Arial,sans-serif" font-size="34" font-weight="800" text-anchor="middle" fill="#f0c24d">LuxPoint7</text>' +
+  '</svg>'
+);
+
+function escaparHTML(texto) {
+  return String(texto)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function crearTarjetaProducto(producto) {
   const card = document.createElement("article");
   card.className = "producto-card";
 
   const badgeHTML = producto.estado
-    ? `<span class="badge-estado ${producto.estado === "NUEVO" ? "badge-nuevo" : "badge-seminuevo"}">${producto.estado}</span>`
+    ? `<span class="badge-estado ${producto.estado === "NUEVO" ? "badge-nuevo" : "badge-seminuevo"}">${escaparHTML(producto.estado)}</span>`
     : "";
 
-   const incluyeHTML = producto.incluye
-  ? `<p class="producto-incluye">${producto.incluye}</p>`
-  : "";
+  const incluyeHTML = producto.incluye
+    ? `<p class="producto-incluye">${escaparHTML(producto.incluye)}</p>`
+    : "";
 
   card.innerHTML = `
     <div class="producto-imagen-wrap">
       ${badgeHTML}
       <img
         class="img-producto"
-        src="${producto.imagen}"
-        alt="${producto.nombre}"
+        src="${escaparHTML(producto.imagen)}"
+        alt="${escaparHTML(producto.nombre)}"
         loading="lazy"
         decoding="async"
-        onerror="this.src='https://via.placeholder.com/300x300/16181d/f0c24d?text=LuxPoint7'"
       >
     </div>
     <div class="producto-info">
-      <p class="producto-categoria">${NOMBRES_CATEGORIA[producto.categoria]}</p>
-      <h3 class="producto-nombre">${producto.nombre}</h3>
-      <p class="producto-desc">${producto.descripcion}</p>
-            ${incluyeHTML} 
+      <p class="producto-categoria">${escaparHTML(NOMBRES_CATEGORIA[producto.categoria])}</p>
+      <h3 class="producto-nombre">${escaparHTML(producto.nombre)}</h3>
+      <p class="producto-desc">${escaparHTML(producto.descripcion)}</p>
+      ${incluyeHTML}
       <div class="producto-footer">
         <span class="producto-precio">${formatearPrecio(producto.precio)}</span>
-        <button class="btn-whatsapp" data-nombre="${producto.nombre}">
-          WhatsApp
-        </button>
+        <button class="btn-whatsapp">WhatsApp</button>
       </div>
     </div>
   `;
+
+  const img = card.querySelector(".img-producto");
+  img.addEventListener("error", () => {
+    img.src = IMAGEN_RESPALDO;
+  }, { once: true });
 
   card.querySelector(".btn-whatsapp").addEventListener("click", () => {
     enviarWhatsApp(producto);
@@ -2517,13 +2535,9 @@ function crearTarjetaProducto(producto) {
   return card;
 }
 
-
-
-
 function renderizarProductos(lista) {
   lista = ordenarProductos(lista);
   gridProductos.innerHTML = "";
-  // ...el resto queda igual
 
   if (lista.length === 0) {
     sinResultados.style.display = "block";
@@ -2537,11 +2551,7 @@ function renderizarProductos(lista) {
   // Se usa un DocumentFragment para insertar todas las tarjetas de una sola
   // vez en el DOM (una sola repintada), en vez de una por una. Esto es lo
   // que mantiene fluida la galería incluso con cientos de productos.
-  const fragmento = document.createDocumentFragment();
-  lista.forEach(producto => fragmento.appendChild(crearTarjetaProducto(producto)));
-  gridProductos.appendChild(fragmento);
-  gridProductos.scrollTop = 0;
-}
+  const fragmento =
 
 
 /* =========================================================================
