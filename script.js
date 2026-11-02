@@ -2729,7 +2729,7 @@ function enviarWhatsApp(producto) {
   ];
 
   if (producto.estado) {
-    lineas.push(`Estado: ${producto.estado}`);
+    lineas.push(`Precio publicado: ${formatearPrecio(producto.precio)}`);
   }
 
   lineas.push(`Precio: ${formatearPrecio(producto.precio)}`);
@@ -2737,7 +2737,7 @@ function enviarWhatsApp(producto) {
 
   const mensaje = lineas.join("\n");
   const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, "_blank");
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 
 
