@@ -2551,7 +2551,11 @@ function renderizarProductos(lista) {
   // Se usa un DocumentFragment para insertar todas las tarjetas de una sola
   // vez en el DOM (una sola repintada), en vez de una por una. Esto es lo
   // que mantiene fluida la galería incluso con cientos de productos.
-  const fragmento =
+    const fragmento = document.createDocumentFragment();
+  lista.forEach(producto => fragmento.appendChild(crearTarjetaProducto(producto)));
+  gridProductos.appendChild(fragmento);
+  gridProductos.scrollTop = 0;
+}
 
 
 /* =========================================================================
@@ -2729,10 +2733,10 @@ function enviarWhatsApp(producto) {
   ];
 
   if (producto.estado) {
-    lineas.push(`Precio publicado: ${formatearPrecio(producto.precio)}`);
+    lineas.push(`Estado: ${producto.estado}`);
   }
 
-  lineas.push(`Precio: ${formatearPrecio(producto.precio)}`);
+  lineas.push(`Precio publicado: ${formatearPrecio(producto.precio)}`);
   lineas.push("", "¿Lo tienen disponible?");
 
   const mensaje = lineas.join("\n");
